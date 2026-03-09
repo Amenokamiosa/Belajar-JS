@@ -1,52 +1,75 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input ke Paragraf</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input ke Paragraf</title>
 </head>
+
 <body>
-    <button onclick="tampilkanInput()">jalankan program</button>
-    <div id="formInput" style="display: none;">
-        <label>Nama: </label><br>
-        <input type="text" id="nama" placeholder="masukkan nama anda"><br>
-        <label>Usia:</label><br>
-        <input type="text" id="usia" placeholder="masukkan usia anda"><br>
-        <button onclick="tampilkanHasil()">tampilkan biodata</button>
-    </div>
 
-    <div id="warna">
-        <form>
-            <input type="radio" name="fav_Color" id="merah" value="Merah">
-            <label for="merah">Merah</label>
-            <input type="radio" name="fav_Color" id="biru" value="Biru">
-            <label for="biru">Biru</label>
-            <input type="radio" name="fav_Color" id="kuning" value="Kuning">
-            <label for="kuning">Kuning</label>
-        </form>
-    </div>
+<button onclick="tampilkanInput()">jalankan program</button>
 
-    <div id="output">
-        <p id="outputNama"></p>
-    </div>
-    <script>
-        function tampilkanTeks(){
-            //mengambil nilai dari textfields
-            var teks = document.getElementById("inputTeks").value;
-            //menampilkan ke paragraf
-            document.getElementById("hasil").innerText = teks;
+<div id="formInput" style="display:none;">
+    <label>Nama:</label><br>
+    <input type="text" id="nama" placeholder="masukkan nama anda"><br>
+
+    <label>Usia:</label><br>
+    <input type="text" id="usia" placeholder="masukkan usia anda"><br>
+
+    <button onclick="tampilkanHasil()">tampilkan biodata</button>
+</div>
+
+<div id="warna">
+<form>
+    <input type="radio" name="fav_Color" id="merah" value="Merah">
+    <label for="merah">Merah</label><br>
+
+    <input type="radio" name="fav_Color" id="biru" value="Biru">
+    <label for="biru">Biru</label><br>
+
+    <input type="radio" name="fav_Color" id="kuning" value="Kuning">
+    <label for="kuning">Kuning</label><br>
+
+    <button type="button" onclick="ambilRadio()">submit</button>
+</form>
+</div>
+
+<div id="output">
+<p id="outputNama"></p>
+<p id="warnaKesukaan"></p>
+</div>
+
+<script>
+
+function tampilkanInput(){
+    document.getElementById("formInput").style.display = "block";
+}
+
+function tampilkanHasil(){
+
+    var nama = document.getElementById("nama").value;
+    var usia = document.getElementById("usia").value;
+
+    document.getElementById("outputNama").innerHTML =
+    "Halo, nama saya " + nama + " dan usia saya " + usia + " tahun.";
+}
+
+function ambilRadio(){
+
+    var radio = document.getElementsByName("fav_Color");
+    var hasil = "";
+
+    for(var i = 0; i < radio.length; i++){
+        if(radio[i].checked){
+            hasil = radio[i].value;
         }
+    }
 
-        function tampilkanInput(){
-            document.getElementById("formInput").style.display = "block";
-        }
-        function tampilkanHasil(){
-            //mengambil nilai dari input
-            var nama = document.getElementById("nama").value;
-            var usia = document.getElementById("usia").value;
+    document.getElementById("warnaKesukaan").innerHTML =
+    "Warna kesukaan saya " + hasil;
+}
 
-            //menampilkan hasil ke paragraf
-            document.getElementById("outputNama").innerHTML = "Halo, nama saya " + nama + " dan usia saya "+ usia + " tahun."
-        }
-    </script>
+</script>
+
 </body>
 </html>
