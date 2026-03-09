@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input ke Paragraf</title>
+</head>
+<body>
+    <button onclick="tampilkanInput()">jalankan program</button>
+    <div id="formInput" style="display: none;">
+        <label>Nama: </label><br>
+        <input type="text" id="nama" placeholder="masukkan nama anda"><br>
+        <label>Usia:</label><br>
+        <input type="text" id="usia" placeholder="masukkan usia anda">
+        <button onclick="tampilkanHasil()">tampilkan biodata</button>
+    </div>
+
+    <div id="output">
+        <p id="outputNama"></p>
+    </div>
+    <script>
+        function tampilkanTeks(){
+            //mengambil nilai dari textfields
+            var teks = document.getElementById("inputTeks").value;
+            //menampilkan ke paragraf
+            document.getElementById("hasil").innerText = teks;
+        }
+
+        function tampilkanInput(){
+            document.getElementById("formInput").style.display = "block";
+        }
+        function tampilkanHasil(){
+            //mengambil nilai dari input
+            var nama = document.getElementById("nama").value;
+            var usia = document.getElementById("usia").value;
+
+            //menampilkan hasil ke paragraf
+            document.getElementById("outputNama").innerHTML = "Halo, nama saya " + nama + " dan usia saya "+ usia + " tahun."
+        }
+    </script>
+</body>
+</html>
